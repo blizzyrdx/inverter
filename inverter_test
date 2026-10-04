@@ -1,0 +1,42 @@
+#! /usr/local/Cellar/icarus-verilog/13.0/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/Cellar/icarus-verilog/13.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/13.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/13.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/13.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/13.0/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/13.0/lib/ivl/v2009.vpi";
+S_0x7f9ade008410 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x7f9ade005fe0 .scope module, "inverter_tb" "inverter_tb" 3 1;
+ .timescale 0 0;
+v0x7f9ade019880_0 .var "a", 0 0;
+v0x7f9ade019930_0 .net "y", 0 0, L_0x7f9ade0199e0;  1 drivers
+S_0x7f9ade006150 .scope module, "dut" "inverter" 3 6, 4 1 0, S_0x7f9ade005fe0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "y";
+L_0x7f9ade0199e0 .functor NOT 1, v0x7f9ade019880_0, C4<0>, C4<0>, C4<0>;
+v0x7f9ade005530_0 .net "a", 0 0, v0x7f9ade019880_0;  1 drivers
+v0x7f9ade0197d0_0 .net "y", 0 0, L_0x7f9ade0199e0;  alias, 1 drivers
+    .scope S_0x7f9ade005fe0;
+T_0 ;
+    %vpi_call/w 3 12 "$monitor", "time=%0t a=%b y=%b", $time, v0x7f9ade019880_0, v0x7f9ade019930_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7f9ade019880_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7f9ade019880_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "inverter_tb.sv";
+    "inverter.sv";

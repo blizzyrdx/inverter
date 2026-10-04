@@ -3,6 +3,6 @@ module inverter (
     output logic y
 );
 
-    assign y = ~a; //bitwise not operator
+    assign y = ~a; 
 
 endmodule
